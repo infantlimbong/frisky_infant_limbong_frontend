@@ -18,7 +18,7 @@
                 <div>
                     <label class="block mb-1 text-sm font-medium text-slate-600">Unit</label>
                     <select v-model="form.unit" class="w-full border-1 border-gray-300 rounded px-2 py-2 text-sm" required>
-                        <option value="" disabled>-- Pilih Unit --</option>
+                        <option value="" disabled>Pilih Unit</option>
                         <option v-for="u in units" :key="u" :value="u">{{ u }}</option>
                     </select>
                 </div>
@@ -26,14 +26,14 @@
                 <div>
                     <label class="block mb-1 text-sm font-medium text-slate-600">Ruang Meeting</label>
                     <select v-model="form.ruangMeeting" class="w-full border-1 border-gray-300 rounded px-2 py-2 text-sm" required>
-                        <option value="" disabled>-- Pilih Ruangan --</option>
+                        <option value="" disabled>Pilih Ruangan</option>
                         <option v-for="r in rooms" :key="r" :value="r">{{ r }}</option>
                     </select>
                 </div>
 
                 <div>
                     <label class="block mb-1 text-sm font-medium text-slate-600">Kapasitas</label>
-                    <input v-model.number="form.kapasitas" type="number" class="w-full border-1 border-gray-300 rounded px-2 py-2 text-sm" placeholder="Kapasitas Ruangan" required />
+                    <input v-model.number="form.kapasitas" type="number" class="w-full border-1 border-gray-300 rounded px-2 py-2 text-sm" :class="form.ruangMeeting == '' ? 'bg-gray-200' : ''" placeholder="Kapasitas Ruangan" required :disabled="form.ruangMeeting == ''" />
                 </div>
             </div>
 
